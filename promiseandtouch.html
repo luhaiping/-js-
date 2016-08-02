@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=0" />
+    <title></title>
+</head>
+<body>
+<div id="tab" style="width: 100%;height: 500px;background: red;text-align: center;line-height: 500px;font-size: 100px">
+    dianji
+</div>
+<script src="Zepto.min.js"></script>
+<script src="promise.js"></script>
+<script type="text/javascript">
+    $("#tab").singleTap(function(){
+        console.log("123");
+    }).doubleTap(function(){
+        console.log("shuangji");
+    }).longTap(function(){
+        console.log("chang");
+    }).swipeLeft(function(){
+        console.log("left");
+    }).swipeRight(function(){
+        console.log("right");
+    }).swipeUp(function(){
+        console.log("up");
+    }).swipeDown(function(){
+        console.log("xia");
+    });
+
+    function fn1(){
+        var promise=new Promise();
+        window.promseone=promise;
+        window.setTimeout(function(){
+            var data=1;
+            if(data){
+                promise.resolve(promise,"diyici");
+            }else{
+                promise.reject("shibai");
+            }
+        },2000);
+        return promise
+    }
+    fn1().then(function(that){
+        var promise=new Promise();
+        window.setTimeout(function(){
+            var data=1;
+            if(data){
+                promise.resolve(promise,"diyici");
+            }else{
+                promise.reject("shibai");
+            }
+        },2000);
+        console.log("diyici ");
+        return promise
+
+    },function(data){
+        console.log(data);
+    }).then(function(data){
+        console.log("第二次 ");
+    })
+</script>
+</body>
+</html>
