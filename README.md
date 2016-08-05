@@ -2,5 +2,6 @@
 ##common 操作本地存储。
 ##zeto
 ##zepto.touch.js
-##promise   
+##promise
+###kaishi
 
